@@ -3,13 +3,10 @@ package com.example.pizzastudy
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pizzastudy.databinding.ActivityMainBinding
 import com.example.pizzastudy.databinding.PizzaRecipeItemBinding
 
-class PizzaRecipeAdapter(val pizzaRecipeItems : ArrayList<PizzaRecipeltem>) : RecyclerView.Adapter<PizzaRecipeAdapter.PizzaHolder>(){
+class PizzaRecipeAdapter(private val pizzaRecipeItems : ArrayList<PizzaRecipeltem>) : RecyclerView.Adapter<PizzaRecipeAdapter.PizzaHolder>(){
     class PizzaHolder(item : View) : RecyclerView.ViewHolder(item){
         private val binding = PizzaRecipeItemBinding.bind(item)
         fun bind(itemPizza: PizzaRecipeltem) = with(binding){
@@ -30,8 +27,6 @@ class PizzaRecipeAdapter(val pizzaRecipeItems : ArrayList<PizzaRecipeltem>) : Re
     }
 
     override fun onBindViewHolder(holder: PizzaHolder, position: Int) {
-       val item = pizzaRecipeItems.get(position)
         holder.bind(pizzaRecipeItems[position])
     }
-
 }
